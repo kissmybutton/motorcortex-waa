@@ -1,4 +1,4 @@
-import MyEffect from './Incidents/Effect';
+import WAA from './Incidents/Effect';
 
 import {name,version}  from '../package.json'
 
@@ -7,8 +7,8 @@ export default {
   version: version, // don't touch this
   incidents: [
     {
-      exportable: MyEffect,
-      name: "MyEffect", // name your Incident any way you want
+      exportable: WAA,
+      name: "WAA", // name your Incident any way you want
     //   attributesValidationRules: {
     //     // define your attributeValidationRules so MotorCortex can automatically validate them on instantiation 
     //     // also so your Incidents are directly embedable to DonkeyClip

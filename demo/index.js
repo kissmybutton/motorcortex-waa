@@ -21,7 +21,8 @@ const clip = new MotorCortex.HTMLClip({
             height: 50%;
         }
         #effect{
-            background-color:rgb(255, 0, 85);
+            background-color:rgb(37, 32, 86);
+            
         }
 
     `,
@@ -32,16 +33,17 @@ const clip = new MotorCortex.HTMLClip({
     }
 });
 
-const newEffect = new MyPlugin.MyEffect({
+const newEffect = new MyPlugin.WAA({
     animatedAttrs: {
-        "background-color": "rgb(255, 0, 85)",
+        transform: {rotate:"20deg",scale: "2"},
+        backgroundColor: "rgb(255, 0, 85)"
       },
       initialValues:{
-        "background-color": "rgb(37, 32, 86)"
+        transform: {rotate:"90deg"}
       }
 }, {
     selector: '#effect',
-    duration: 1000
+    duration: 2000
 });
 
 
