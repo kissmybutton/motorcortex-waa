@@ -116,10 +116,12 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
   }
 
   function u(t, e) {
-    return !e || "object" != _typeof(e) && "function" != typeof e ? function (t) {
+    if (e && ("object" == _typeof(e) || "function" == typeof e)) return e;
+    if (void 0 !== e) throw new TypeError("Derived constructors may only return object or undefined");
+    return function (t) {
       if (void 0 === t) throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
       return t;
-    }(t) : e;
+    }(t);
   }
 
   function c(t) {
@@ -305,7 +307,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 /******/ 	
 /******/ 	/* webpack/runtime/getFullHash */
 /******/ 	(() => {
-/******/ 		__webpack_require__.h = () => ("96340b7603502b7821af")
+/******/ 		__webpack_require__.h = () => ("6f7a329b22f5644df823")
 /******/ 	})();
 /******/ 	
 /******/ 	/* webpack/runtime/global */
