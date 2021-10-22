@@ -1,14 +1,14 @@
 {
-  "name": "my-plugin-name",
+  "name": "@donkeyclip/motorcortex-waa",
   "version": "0.0.1",
   "description": "Your plugin description here",
   "main": "dist/bundle.cjs.js",
   "module": "dist/bundle.esm.js",
   "browser": "dist/bundle.umd.js",
-  "author": "",
+  "author": "Donkeyclip (donkeyclip.com) <opensource@donkeyclip.com>",
   "repository": {
     "type": "git",
-    "url": "Your git repo here"
+    "url": "https://github.com/donkeyclip/motorcortex-waa.git"
   },
   "license": "MIT",
   "engines": {
