@@ -2,9 +2,9 @@
   "name": "@donkeyclip/motorcortex-waa",
   "version": "0.0.1",
   "description": "Your plugin description here",
-  "main": "dist/bundle.cjs.js",
-  "module": "dist/bundle.esm.js",
-  "browser": "dist/bundle.umd.js",
+  "main": "dist/motorcortex-waa.cjs.js",
+  "module": "dist/motorcortex-waa.esm.js",
+  "browser": "dist/motorcortex-waa.umd.js",
   "author": "Donkeyclip (donkeyclip.com) <opensource@donkeyclip.com>",
   "repository": {
     "type": "git",
@@ -26,18 +26,28 @@
     "start:demo": "webpack serve --mode=development --config ./demo/webpack.config.js",
     "build:demo": "webpack --mode=production --config ./demo/webpack.config.js",
     "test": "HERE GOES YOUR TEST TASK",
-    "test:prod": "npm run lint"
+    "test:prod": "npm run lint",
+    "prepare": "husky install"
   },
   "keywords": [
     "motorcortex"
   ],
+  "lint-staged": {
+    "*.{json,css,yml}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
+  },
   "config": {
     "commitizen": {
       "path": "cz-conventional-changelog"
     }
   },
   "peerDependencies": {
-    "@kissmybutton/motorcortex": ">= 6.4.1 < 8"
+    "@donkeyclip/motorcortex": ">= 6.4.1 < 8"
   },
   "devDependencies": {
     "@babel/cli": "7.15.7",
@@ -46,8 +56,8 @@
     "@babel/plugin-syntax-jsx": "7.14.5",
     "@babel/plugin-transform-react-jsx": "7.14.9",
     "@babel/preset-env": "7.15.8",
-    "@kissmybutton/motorcortex": "7.3.0",
-    "@kissmybutton/motorcortex-player": "2.2.0",
+    "@donkeyclip/motorcortex": "7.5.5",
+    "@donkeyclip/motorcortex-player": "2.3.6",
     "@rollup/plugin-babel": "5.3.0",
     "@rollup/plugin-commonjs": "21.0.1",
     "@rollup/plugin-json": "4.1.0",
@@ -65,6 +75,7 @@
     "eslint-plugin-node": "11.1.0",
     "eslint-plugin-prettier": "3.4.1",
     "eslint-plugin-promise": "4.3.1",
+    "husky": "^7.0.0",
     "prettier": "2.4.1",
     "rimraf": "3.0.2",
     "rollup": "2.58.3",
