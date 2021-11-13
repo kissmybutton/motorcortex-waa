@@ -1963,7 +1963,7 @@ var WAA = /*#__PURE__*/function (_MotorCortex$Effect) {
 }(MotorCortex__default["default"].Effect);
 
 var name = "@donkeyclip/motorcortex-waa";
-var version = "0.0.1";
+var version = "1.0.0";
 
 var index = {
   npm_name: name,
