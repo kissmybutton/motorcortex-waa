@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.0...v1.0.1) (2021-11-15)
+
+
+### Bug Fixes
+
+* add terser to es and cjs bundles ([5c01ac9](https://www.github.com/donkeyclip/motorcortex-waa/commit/5c01ac904bd15d622296eb10d33400e761f14478))
+* multiple incidents with same attribute on same element ([eb32d2b](https://www.github.com/donkeyclip/motorcortex-waa/commit/eb32d2b88c73f79828d42a21913dd686b7952e59))
+* remove previous animations to avoid memory leak ([c560717](https://www.github.com/donkeyclip/motorcortex-waa/commit/c560717795ed610715a7f58267f564db0ce45116))
+
 ## 1.0.0 (2021-11-13)
 
 
