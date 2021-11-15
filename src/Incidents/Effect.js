@@ -60,7 +60,6 @@ export default class WAA extends MotorCortex.Effect {
         this.context.window.document.timeline.currentTime -
         this.target.currentTime * this.target.playbackRate;
     /* create the new animation */
-
     this.target = this.element.animate(
       [
         { [this.attributeKey]: this.options[this.attributeKey][0] },
