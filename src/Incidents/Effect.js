@@ -6,61 +6,58 @@ const { hasOwnProperty } = Object.prototype;
 
 export default class WAA extends MotorCortex.Effect {
   getScratchValue() {
-    const { getComputedStyle } = this.context.window;
-
     if (this.attributeKey !== "transform") {
-      return getComputedStyle(this.element)[this.attributeKey];
+      return this.context.window.getComputedStyle(this.element)[
+        this.attributeKey
+      ];
     }
 
-    const transformScratch = {};
+    const obj = {};
+    const transform = compoAttributes[this.attributeKey];
     const currentTransform = getMatrix2D(this.context.window, this.element);
 
-    for (const attr of compoAttributes[this.attributeKey]) {
-      transformScratch[attr] = hasOwnProperty.call(currentTransform, attr)
-        ? currentTransform[attr]
-        : getComputedStyle(this.element)[attr];
+    for (let i = 0; i < transform.length; i++) {
+      obj[transform[i]] = hasOwnProperty.call(currentTransform, transform[i])
+        ? currentTransform[transform[i]]
+        : this.context.window.getComputedStyle(this.element)[transform[i]];
     }
 
-    return transformScratch;
+    return obj;
   }
 
   onGetContext() {
+    this.initialized = false;
     this.options = {};
     if (hasOwnProperty.call(compoAttributes, this.attributeKey)) {
       for (const attr of compoAttributes[this.attributeKey]) {
         if (!hasOwnProperty.call(this.targetValue, attr)) {
           continue;
         }
-        this.options.transform = [];
+        this.options.transform ??= [];
         this.options.transform[0] ??= "";
         this.options.transform[1] ??= "";
-        this.options.transform[0] += ` ${[attr]}(${this.initialValue[attr]})`;
+        this.options.transform[0] += ` ${[attr]}(${
+          this.initialValue[attr] || 0
+        })`;
         this.options.transform[1] += ` ${[attr]}(${this.targetValue[attr]})`;
       }
     } else {
       this.options[this.attributeKey] = [this.initialValue, this.targetValue];
     }
-
     this.context.CSSAnimationLayer ??= {};
     this.context.CSSAnimationLayer[this.element.dataset.motorcortex2Id] ??= {};
-    this.context.CSSAnimationLayer[this.element.dataset.motorcortex2Id][
-      this.attributeKey
-    ] = {
-      start: this.options[this.attributeKey][0],
-      end: this.options[this.attributeKey][1],
-    };
-    this.checkAnimation();
   }
 
   createAnimation() {
     this.creating = true;
-    /* clear all previus animations to avoid memory leak */
-    if (this.target)
-      this.target.startTime =
+    /* clear all previous animations to avoid memory leak */
+    if (this.animation)
+      this.animation.startTime =
         this.context.window.document.timeline.currentTime -
-        this.target.currentTime * this.target.playbackRate;
+        this.animation.currentTime * this.animation.playbackRate;
+
     /* create the new animation */
-    this.target = this.element.animate(
+    this.animation = this.element.animate(
       [
         { [this.attributeKey]: this.options[this.attributeKey][0] },
         { [this.attributeKey]: this.options[this.attributeKey][1] },
@@ -71,7 +68,8 @@ export default class WAA extends MotorCortex.Effect {
         easing: "linear",
       }
     );
-    this.target.pause();
+    this.animation.pause();
+
     /* add the new animations info to the context */
     this.context.CSSAnimationLayer[this.element.dataset.motorcortex2Id][
       this.attributeKey
@@ -86,18 +84,19 @@ export default class WAA extends MotorCortex.Effect {
     const { start, end } =
       this.context.CSSAnimationLayer[this.element.dataset.motorcortex2Id][
         this.attributeKey
-      ];
+      ] || {};
     if (
       start !== this.options[this.attributeKey][0] ||
-      end !== this.options[this.attributeKey][1] ||
-      !this.target
+      end !== this.options[this.attributeKey][1]
     ) {
       this.createAnimation();
     }
   }
+
   onProgress(fraction) {
     if (this.creating) return;
     this.checkAnimation();
-    this.target.currentTime = this.props.duration * fraction;
+
+    this.animation.currentTime = this.props.duration * fraction;
   }
 }
