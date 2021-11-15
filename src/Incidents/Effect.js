@@ -57,7 +57,7 @@ export default class WAA extends MotorCortex.Effect {
     /* clear all previus animations to avoid memory leak */
     if (this.target)
       this.target.startTime =
-        document.timeline.currentTime -
+        this.context.window.document.timeline.currentTime -
         this.target.currentTime * this.target.playbackRate;
     /* create the new animation */
     this.target = this.element.animate(
