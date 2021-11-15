@@ -1,5 +1,14 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.1...v1.0.2) (2021-11-15)
+
+
+### Bug Fixes
+
+* multiple transform attributes and initial values ([6b168c3](https://www.github.com/donkeyclip/motorcortex-waa/commit/6b168c35cdc40268c8460ddc3646def55cdfe915))
+* rebase to main ([a3e272f](https://www.github.com/donkeyclip/motorcortex-waa/commit/a3e272fee3cd08b037bafc72a1c73d33399c0bdb))
+* remove previous animations to avoid memory leak ([eef15ca](https://www.github.com/donkeyclip/motorcortex-waa/commit/eef15ca5a115ac055ac552cff74ebf9ff90ec22e))
+
 ### [1.0.1](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.0...v1.0.1) (2021-11-15)
 
 
