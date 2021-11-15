@@ -54,6 +54,12 @@ export default class WAA extends MotorCortex.Effect {
 
   createAnimation() {
     this.creating = true;
+    /* clear all previus animations to avoid memory leak */
+    if (this.target)
+      this.target.startTime =
+        document.timeline.currentTime -
+        this.target.currentTime * this.target.playbackRate;
+    /* create the new animation */
     this.target = this.element.animate(
       [
         { [this.attributeKey]: this.options[this.attributeKey][0] },
@@ -66,6 +72,7 @@ export default class WAA extends MotorCortex.Effect {
       }
     );
     this.target.pause();
+    /* add the new animations info to the context */
     this.context.CSSAnimationLayer[this.element.dataset.motorcortex2Id][
       this.attributeKey
     ] = {
