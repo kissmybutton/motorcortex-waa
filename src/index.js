@@ -1,9 +1,9 @@
 import WAA from "./Incidents/Effect";
-const { name, version } = require("../package.json");
+import pkg from "../package.json";
 
 export default {
-  npm_name: name,
-  version: version,
+  npm_name: pkg.name,
+  version: pkg.version,
   incidents: [
     {
       exportable: WAA,
