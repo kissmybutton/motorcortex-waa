@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.2...v1.0.3) (2021-11-16)
+
+
+### Bug Fixes
+
+* replace require with import ([cf48ef4](https://www.github.com/donkeyclip/motorcortex-waa/commit/cf48ef4846b0bea61fe101842b715a11bbf5e805))
+
 ### [1.0.2](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.1...v1.0.2) (2021-11-15)
 
 

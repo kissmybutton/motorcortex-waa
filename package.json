@@ -1,6 +1,6 @@
 {
   "name": "@donkeyclip/motorcortex-waa",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Your plugin description here",
   "main": "dist/motorcortex-waa.cjs.js",
   "module": "dist/motorcortex-waa.esm.js",
