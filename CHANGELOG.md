@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://github.com/donkeyclip/motorcortex-waa/compare/v1.0.3...v1.0.4) (2022-06-26)
+
+
+### Bug Fixes
+
+* import only effect instead of full MC ([4bd5a49](https://github.com/donkeyclip/motorcortex-waa/commit/4bd5a498f1e4df35df32b0bc778527af28d203ca))
+
 ### [1.0.3](https://www.github.com/donkeyclip/motorcortex-waa/compare/v1.0.2...v1.0.3) (2021-11-16)
 
 
