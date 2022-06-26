@@ -1,10 +1,10 @@
-import MotorCortex from "@donkeyclip/motorcortex";
+import { Effect } from "@donkeyclip/motorcortex";
 import compoAttributes from "../compoAttributes";
 import getMatrix2D from "./matrix2d";
 
 const { hasOwnProperty } = Object.prototype;
 
-export default class WAA extends MotorCortex.Effect {
+export default class WAA extends Effect {
   getScratchValue() {
     if (this.attributeKey !== "transform") {
       return this.context.window.getComputedStyle(this.element)[
